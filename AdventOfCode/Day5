@@ -31,9 +31,20 @@ s = reduce(input, seats, 'L', 'R')
 
 combined  = zip (r, s)
 max = 0
+seatIDs = []
 for location in combined:
     seatID = location[0] * 8 + location[1]
+    seatIDs.append(seatID)
     if seatID > max:
         max = seatID
 
 print(max)
+
+# part 2
+# find your seatId knowing that it is missing from the list but also knowing that
+# that seatID -1 and seatID +1 from your seat exist
+
+seatIDs.sort()
+for i in range(0, len(seatIDs)):
+    if i+1 < len(seatIDs) and seatIDs[i] + 1 != seatIDs[i+1]:
+        print(seatIDs[i] + 1)
