@@ -7,12 +7,10 @@ with open(file) as ans:
 sum = 0
 for i in groupAns:
     setList = []
-    splitted = i.split(' ')
+    splitted = i.split()
     for j in splitted:
         j = set((j))
         setList.append(j)
     sum += len(setList[0].intersection(*setList))
-    print(setList[0].intersection(*setList))
-    print('--------')
 
 print(sum)
